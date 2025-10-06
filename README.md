@@ -2,7 +2,7 @@
 
 A comprehensive web application and Telegram bot system for managing visa and travel applications. The system allows users to submit visa/travel applications through a Telegram bot and provides an admin dashboard for managing applications.
 
-## 🌟 Features
+## Features
 
 ### For Users (via Telegram Bot)
 - **Visa Applications**: Submit tourist, business, or student visa applications
@@ -19,7 +19,7 @@ A comprehensive web application and Telegram bot system for managing visa and tr
 - **Statistics**: View application statistics and metrics
 - **User Management**: Admin authentication and authorization
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Backend
 - **Node.js** - Runtime environment
@@ -40,14 +40,14 @@ A comprehensive web application and Telegram bot system for managing visa and tr
 - **MongoDB Atlas** - Cloud database
 - **Ngrok** - Local development tunneling
 
-## 📋 Prerequisites
+## Prerequisites
 
 - Node.js (v14 or higher)
 - MongoDB Atlas account
 - Telegram Bot Token
 - Ngrok account (for development)
 
-## 🚀 Installation & Setup
+## Installation & Setup
 
 ### 1. Clone the Repository
 ```bash
@@ -107,7 +107,7 @@ npm run server
 ngrok http 3000
 ```
 
-## 📖 Usage
+## Usage
 
 ### User Flow
 1. **Start the Bot**: Users message your Telegram bot
@@ -123,7 +123,7 @@ ngrok http 3000
 4. **Update Status**: Approve, reject, or confirm applications
 5. **Send Notifications**: Notify users of status changes
 
-## 🔌 API Endpoints
+## API Endpoints
 
 ### Public Endpoints
 - `GET /` - Main application page
@@ -141,7 +141,7 @@ ngrok http 3000
 ### File Serving
 - `GET /uploads/:filename` - Serve uploaded files
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 visa-and-travel-agency-telegram-bot/
@@ -158,7 +158,7 @@ visa-and-travel-agency-telegram-bot/
 └── README.md            # This file
 ```
 
-## 🔧 Configuration
+## Configuration
 
 ### Environment Variables
 | Variable | Description | Required |
@@ -203,7 +203,7 @@ visa-and-travel-agency-telegram-bot/
 }
 ```
 
-## 🚀 Deployment
+## Deployment
 
 ### Production Deployment
 1. Set `NODE_ENV=production` in environment variables
@@ -227,7 +227,7 @@ EXPOSE 3000
 CMD ["npm", "run", "server"]
 ```
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 
@@ -249,7 +249,7 @@ CMD ["npm", "run", "server"]
    - Default credentials: `admin` / `admin`
    - Check JWT secret configuration
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch: `git checkout -b feature-name`
@@ -263,25 +263,25 @@ CMD ["npm", "run", "server"]
 - Test all features before submitting PR
 - Update documentation for new features
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 📞 Support
+## Support
 
 For support and questions:
 - Create an issue on GitHub
 - Contact the development team
 - Check the troubleshooting section above
 
-## 🔄 Recent Updates
+## Recent Updates
 
 ### v1.0.0
-- ✅ Fixed file upload extension preservation
-- ✅ Improved document preview in admin dashboard
-- ✅ Enhanced error handling and logging
-- ✅ Added comprehensive README documentation
+- Fixed file upload extension preservation
+- Improved document preview in admin dashboard
+- Enhanced error handling and logging
+- Added comprehensive README documentation
 
 ---
 
-**Built with ❤️ for efficient visa and travel application management**
+Built for efficient visa and travel application management
