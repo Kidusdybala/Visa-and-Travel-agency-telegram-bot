@@ -19,6 +19,17 @@ A comprehensive web application and Telegram bot system for managing visa and tr
 - **Statistics**: View application statistics and metrics
 - **User Management**: Admin authentication and authorization
 
+## Screenshots
+
+### Bot Main Page
+![Bot Main Page](images%20for%20readme/bot%20main%20page.png)
+
+### Form Submission Page
+![Form Submission Page](images%20for%20readme/form%20submission%20page.png)
+
+### Admin Dashboard
+![Admin Dashboard](images%20for%20readme/admin%20page.png)
+
 ## Tech Stack
 
 ### Backend
