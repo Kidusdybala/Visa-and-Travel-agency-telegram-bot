@@ -22,13 +22,13 @@ A comprehensive web application and Telegram bot system for managing visa and tr
 ## Screenshots
 
 ### Bot Main Page
-![Bot Main Page](images%20for%20readme/bot%20main%20page.png)
+<img src="images%20for%20readme/bot%20main%20page.png" alt="Bot Main Page" width="300">
 
 ### Form Submission Page
-![Form Submission Page](images%20for%20readme/form%20submission%20page.png)
+<img src="images%20for%20readme/form%20submission%20page.png" alt="Form Submission Page" width="300">
 
 ### Admin Dashboard
-![Admin Dashboard](images%20for%20readme/admin%20page.png)
+<img src="images%20for%20readme/admin%20page.png" alt="Admin Dashboard" width="600">
 
 ## Tech Stack
 
