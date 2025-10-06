@@ -267,6 +267,11 @@
             alert('Message sent! Our support team will respond soon.');
             this.reset();
         });
+
+        const content = document.querySelector('.content');
+        if (content) {
+            window.scrollTo(0, content.offsetTop - 20);
+        }
     </script>
 </body>
 </html>

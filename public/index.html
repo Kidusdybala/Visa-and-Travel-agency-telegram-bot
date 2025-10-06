@@ -230,5 +230,12 @@
             <p>&copy; 2024 Visa & Travel Agency. All rights reserved. | Contact: info@visagency.com</p>
         </div>
     </div>
+
+    <script>
+        const content = document.querySelector('.content') || document.querySelector('.hero');
+        if (content) {
+            window.scrollTo(0, content.offsetTop - 20);
+        }
+    </script>
 </body>
 </html>

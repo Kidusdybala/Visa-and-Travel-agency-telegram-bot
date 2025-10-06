@@ -408,6 +408,11 @@
                 alert('Network error. Please try again.');
             }
         });
+
+        const content = document.querySelector('.content');
+        if (content) {
+            window.scrollTo(0, content.offsetTop - 20);
+        }
     </script>
 </body>
 </html>

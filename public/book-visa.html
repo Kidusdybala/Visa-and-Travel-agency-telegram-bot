@@ -410,7 +410,7 @@
                 });
 
                 if (response.ok) {
-                    showMessage('✅ Visa application submitted successfully! You will be contacted soon.', 'success');
+                    showMessage('Visa application submitted successfully! You will be contacted soon.', 'success');
                     this.reset();
                     document.getElementById('visaForm').classList.remove('show');
                 } else {
@@ -421,6 +421,11 @@
                 showMessage('🌐 Network error. Please check your connection and try again.', 'error');
             }
         });
+
+        const content = document.querySelector('.content');
+        if (content) {
+            window.scrollTo(0, content.offsetTop - 20);
+        }
     </script>
 </body>
 </html>

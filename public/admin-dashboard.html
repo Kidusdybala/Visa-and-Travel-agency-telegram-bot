@@ -348,10 +348,10 @@
                         <div class="app-type">${app.type} to ${app.destination}</div>
                         <div class="app-details">${app.details} • ${new Date(app.createdAt).toLocaleDateString()}</div>
                         <div class="contact-info">
-                            📧 ${app.contactInfo?.email || 'N/A'} • 📱 ${app.contactInfo?.phone || 'N/A'}
-                            ${app.contactInfo?.telegramUsername ? ` • 💬 ${app.contactInfo.telegramUsername}` : ''}
+                            ${app.contactInfo?.email || 'N/A'} • ${app.contactInfo?.phone || 'N/A'}
+                            ${app.contactInfo?.telegramUsername ? ` • ${app.contactInfo.telegramUsername}` : ''}
                         </div>
-                        ${app.documents && app.documents.length > 0 ? `<div class="documents">📎 Documents: ${app.documents.map((doc, index) => `<a href="#" onclick="previewDocument('/uploads/${doc.filename}', '${doc.originalname}', ${index})">View ${index + 1}</a>`).join(' | ')}</div>` : ''}
+                        ${app.documents && app.documents.length > 0 ? `<div class="documents">Documents: ${app.documents.map((doc, index) => `<a href="#" onclick="previewDocument('/uploads/${doc.filename}', '${doc.originalname}', ${index})">View ${index + 1}</a>`).join(' | ')}</div>` : ''}
                     </div>
                     <div>
                         <select class="status-select" onchange="updateStatus('${app._id}', this.value)">
