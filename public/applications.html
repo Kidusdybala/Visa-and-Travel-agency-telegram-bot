@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visa & Travel Agency - My Applications</title>
+    <style>
+        body {
+            background: #ffffff;
+            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .nav {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .nav a {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            box-shadow: 0 2px 8px rgba(0,123,255,0.3);
+        }
+        .nav a.active {
+            background: linear-gradient(135deg, #0056b3 0%, #004085 100%);
+            box-shadow: 0 2px 8px rgba(0,86,179,0.4);
+        }
+        .content h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        .filters {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .filters button {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: #007bff;
+            border: 1px solid #007bff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        .filters button:hover, .filters button.active {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: white;
+        }
+        .applications {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+        .app-item {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #007bff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+        .app-item:hover {
+            transform: translateX(5px);
+        }
+        .app-item span {
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+        .status-review {
+            background-color: #ffc107;
+            color: #000;
+        }
+        .status-approved {
+            background-color: #28a745;
+            color: white;
+        }
+        .status-rejected {
+            background-color: #dc3545;
+            color: white;
+        }
+        .status-confirmed {
+            background-color: #17a2b8;
+            color: white;
+        }
+        .no-apps {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+            padding: 40px;
+        }
+        .footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: 50px;
+            border-radius: 15px 15px 0 0;
+        }
+        .footer p {
+            margin: 0;
+            opacity: 0.8;
+        }
+        /* Mobile */
+        @media (max-width: 768px) {
+            .header {
+                padding: 20px;
+            }
+            .header h1 {
+                font-size: 2rem;
+            }
+            .nav {
+                flex-direction: column;
+                gap: 8px;
+            }
+            .nav a {
+                padding: 14px 20px;
+                font-size: 18px;
+            }
+            .filters {
+                flex-wrap: wrap;
+            }
+            .filters button {
+                flex: 1 1 45%;
+                margin: 5px;
+            }
+            .applications {
+                padding: 20px;
+            }
+            .app-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            .footer {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1> Visa & Travel Agency </h1>
+            <p>Welcome to our web interface for visa and travel services!</p>
+        </div>
+
+        <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="book-visa.html">Book Visa</a>
+            <a href="book-travel.html">Book Travel</a>
+            <a href="applications.html" class="active">My Applications</a>
+            <a href="support.html">Support</a>
+        </nav>
+
+        <div class="content">
+            <h2>My Applications</h2>
+            <div class="filters">
+                <button onclick="filterApps('all')" class="active">All</button>
+                <button onclick="filterApps('review')">In Review</button>
+                <button onclick="filterApps('approved')">Approved</button>
+                <button onclick="filterApps('rejected')">Rejected</button>
+                <button onclick="filterApps('confirmed')">Confirmed</button>
+            </div>
+            <div class="applications" id="appList">
+                <!-- Applications will be loaded dynamically -->
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2024 Visa & Travel Agency. All rights reserved. | Contact: info@visagency.com</p>
+        </div>
+    </div>
+
+    <script>
+        async function loadApplications() {
+            // Get user ID from URL params or generate one
+            const urlParams = new URLSearchParams(window.location.search);
+            const userId = urlParams.get('userId') || 'guest_' + Date.now();
+
+            try {
+                const response = await fetch(`/api/applications/${userId}`);
+                const apps = await response.json();
+
+                const appList = document.getElementById('appList');
+                appList.innerHTML = '';
+                if (apps.length === 0) {
+                    appList.innerHTML = '<div class="no-apps">No applications yet. Start by booking a visa or travel!</div>';
+                    return;
+                }
+                apps.forEach(app => {
+                    const item = document.createElement('div');
+                    item.className = 'app-item';
+                    item.dataset.status = app.status;
+                    item.innerHTML = `
+                        <div>
+                            <strong>${app.type} to ${app.destination}</strong><br>
+                            <small>${app.details} • ${new Date(app.createdAt).toLocaleDateString()}</small>
+                        </div>
+                        <span class="status-${app.status}">${app.status.charAt(0).toUpperCase() + app.status.slice(1)}</span>
+                    `;
+                    appList.appendChild(item);
+                });
+            } catch (err) {
+                console.error('Error loading applications:', err);
+                document.getElementById('appList').innerHTML = '<div class="no-apps">Error loading applications</div>';
+            }
+        }
+
+        function filterApps(status) {
+            // Update active button
+            document.querySelectorAll('.filters button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            const items = document.querySelectorAll('.app-item');
+            items.forEach(item => {
+                if (status === 'all' || item.dataset.status === status) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Initialize
+        loadApplications();
+    </script>
+</body>
+</html>

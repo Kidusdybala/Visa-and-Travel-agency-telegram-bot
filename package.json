@@ -1,0 +1,22 @@
+{
+  "name": "visa-bot",
+  "version": "1.0.0",
+  "description": "Telegram bot for visa and travel agency",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js",
+    "server": "node server.js",
+    "dev": "concurrently \"npm run server\" \"npm start\""
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "concurrently": "^8.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^8.0.0",
+    "multer": "^2.0.2",
+    "node-telegram-bot-api": "^0.66.0"
+  }
+}

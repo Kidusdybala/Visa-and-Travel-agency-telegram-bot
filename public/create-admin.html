@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Admin User</title>
+</head>
+<body>
+    <h1>Create Admin User</h1>
+    <button onclick="createAdmin()">Create Admin User</button>
+    <div id="result"></div>
+
+    <script>
+        async function createAdmin() {
+            try {
+                const response = await fetch('/api/admin/create', {
+                    method: 'POST'
+                });
+                const data = await response.json();
+                document.getElementById('result').textContent = JSON.stringify(data);
+            } catch (err) {
+                document.getElementById('result').textContent = 'Error: ' + err.message;
+            }
+        }
+    </script>
+</body>
+</html>

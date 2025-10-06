@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visa & Travel Agency - Book Visa</title>
+    <style>
+        body {
+            background: #ffffff;
+            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .nav {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .nav a {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            box-shadow: 0 2px 8px rgba(0,123,255,0.3);
+        }
+        .nav a.active {
+            background: linear-gradient(135deg, #0056b3 0%, #004085 100%);
+            box-shadow: 0 2px 8px rgba(0,86,179,0.4);
+        }
+        .content h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        .content p {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #666;
+        }
+        .visa-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .visa-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #e9ecef;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .visa-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+        }
+        .visa-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .visa-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        .visa-card p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        .visa-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0;
+        }
+        .visa-card li {
+            padding: 3px 0;
+            color: #666;
+            font-size: 0.85rem;
+            position: relative;
+            padding-left: 20px;
+        }
+        .visa-card li:before {
+            content: "✓";
+            color: #28a745;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        .apply-btn {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            margin-top: 15px;
+            box-shadow: 0 4px 15px rgba(0,123,255,0.3);
+            transition: all 0.3s ease;
+        }
+        .apply-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,123,255,0.4);
+        }
+        .form-container {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 0 auto;
+            display: none;
+        }
+        .form-container.show {
+            display: block;
+        }
+        .form-container h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        input:focus, select:focus {
+            outline: 2px solid #007bff;
+            outline-offset: 2px;
+        }
+        button[type="submit"] {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            box-shadow: 0 4px 15px rgba(0,123,255,0.3);
+        }
+        .footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: 50px;
+            border-radius: 15px 15px 0 0;
+        }
+        .footer p {
+            margin: 0;
+            opacity: 0.8;
+        }
+        .message {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            border-radius: 8px;
+            color: white;
+            font-weight: bold;
+            z-index: 1000;
+            max-width: 400px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .message.success {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+        }
+        .message.error {
+            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .header {
+                padding: 20px;
+            }
+            .header h1 {
+                font-size: 2rem;
+            }
+            .nav {
+                flex-direction: column;
+                gap: 8px;
+            }
+            .nav a {
+                padding: 14px 20px;
+                font-size: 18px;
+            }
+            .visa-types {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            .visa-card {
+                padding: 20px;
+            }
+            .form-container {
+                padding: 20px;
+            }
+            .footer {
+                padding: 20px;
+            }
+            .message {
+                left: 20px;
+                right: 20px;
+                max-width: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1> Visa & Travel Agency </h1>
+            <p>Welcome to our web interface for visa and travel services!</p>
+        </div>
+
+        <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="book-visa.html" class="active">Book Visa</a>
+            <a href="book-travel.html">Book Travel</a>
+            <a href="applications.html">My Applications</a>
+            <a href="support.html">Support</a>
+        </nav>
+
+        <div class="content">
+            <h2>Visa Services</h2>
+            <p>Expert visa assistance for all your travel needs. We handle the paperwork while you plan your journey.</p>
+
+            <div class="visa-types">
+                <div class="visa-card">
+                    <div class="visa-icon">📄</div>
+                    <h3>Tourist Visa</h3>
+                    <p>Perfect for vacation and leisure travel</p>
+                    <ul>
+                        <li>Fast processing</li>
+                        <li>Expert guidance</li>
+                        <li>Document review</li>
+                    </ul>
+                    <button class="apply-btn" onclick="selectVisaType('tourist')">Apply Now</button>
+                </div>
+                <div class="visa-card">
+                    <div class="visa-icon">🛡️</div>
+                    <h3>Business Visa</h3>
+                    <p>For professional trips and meetings</p>
+                    <ul>
+                        <li>Priority processing</li>
+                        <li>Business letter support</li>
+                        <li>Multiple entry options</li>
+                    </ul>
+                    <button class="apply-btn" onclick="selectVisaType('business')">Apply Now</button>
+                </div>
+                <div class="visa-card">
+                    <div class="visa-icon">🎓</div>
+                    <h3>Student Visa</h3>
+                    <p>Study abroad with confidence</p>
+                    <ul>
+                        <li>University liaison</li>
+                        <li>Document preparation</li>
+                        <li>Interview prep</li>
+                    </ul>
+                    <button class="apply-btn" onclick="selectVisaType('student')">Apply Now</button>
+                </div>
+                <div class="visa-card">
+                    <div class="visa-icon">⏰</div>
+                    <h3>Transit Visa</h3>
+                    <p>Quick processing for layovers</p>
+                    <ul>
+                        <li>Express service</li>
+                        <li>Same-day processing</li>
+                        <li>Airport assistance</li>
+                    </ul>
+                    <button class="apply-btn" onclick="selectVisaType('transit')">Apply Now</button>
+                </div>
+            </div>
+
+            <div class="form-container" id="visaForm">
+                <h3>Visa Application Form</h3>
+                <form id="bookingForm">
+                    <label for="visaDestination">Destination Country:</label>
+                    <input type="text" id="visaDestination" required>
+
+                    <label for="visaType">Visa Type:</label>
+                    <select id="visaType" required>
+                        <option value="">Select Type</option>
+                        <option value="tourist">Tourist</option>
+                        <option value="business">Business</option>
+                        <option value="student">Student</option>
+                        <option value="transit">Transit</option>
+                    </select>
+
+                    <label for="visaDates">Travel Dates:</label>
+                    <input type="text" id="visaDates" placeholder="e.g., 2025-10-10 to 2025-10-15" required>
+    
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" required>
+    
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" required>
+    
+                    <label for="telegramUsername">Telegram Username (optional):</label>
+                    <input type="text" id="telegramUsername" placeholder="@username">
+
+                    <label for="documents">Upload Documents (passport, photos, etc.):</label>
+                    <input type="file" id="documents" name="documents" multiple accept=".pdf,.jpg,.jpeg,.png,.doc,.docx">
+
+                    <button type="submit">Submit Visa Application</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="message" class="message" style="display: none;"></div>
+
+        <div class="footer">
+            <p>&copy; 2024 Visa & Travel Agency. All rights reserved. | Contact: info@visagency.com</p>
+        </div>
+    </div>
+
+    <script>
+        function selectVisaType(type) {
+            document.getElementById('visaType').value = type;
+            document.getElementById('visaForm').classList.add('show');
+            document.getElementById('visaForm').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function showMessage(text, type) {
+            const messageDiv = document.getElementById('message');
+            messageDiv.textContent = text;
+            messageDiv.className = `message ${type}`;
+            messageDiv.style.display = 'block';
+            setTimeout(() => {
+                messageDiv.style.display = 'none';
+            }, 5000);
+        }
+
+        document.getElementById('bookingForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const destination = document.getElementById('visaDestination').value;
+            const type = document.getElementById('visaType').value;
+            const dates = document.getElementById('visaDates').value;
+            if (!destination || !type || !dates) {
+                showMessage('Please fill all required fields.', 'error');
+                return;
+            }
+
+            // Get user ID from URL params or generate one
+            const urlParams = new URLSearchParams(window.location.search);
+            const userId = urlParams.get('userId') || 'guest_' + Date.now();
+
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const telegramUsername = document.getElementById('telegramUsername').value;
+            const documents = document.getElementById('documents').files;
+
+            if (!email || !phone) {
+                showMessage('Please fill all required fields.', 'error');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('type', 'visa');
+            formData.append('destination', destination);
+            formData.append('details', type.charAt(0).toUpperCase() + type.slice(1));
+            formData.append('userId', userId);
+            formData.append('email', email);
+            formData.append('phone', phone);
+            formData.append('telegramUsername', telegramUsername);
+
+            for (let i = 0; i < documents.length; i++) {
+                formData.append('documents', documents[i]);
+            }
+
+            try {
+                const response = await fetch('/api/applications', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (response.ok) {
+                    showMessage('✅ Visa application submitted successfully! You will be contacted soon.', 'success');
+                    this.reset();
+                    document.getElementById('visaForm').classList.remove('show');
+                } else {
+                    showMessage('❌ Error submitting application. Please try again.', 'error');
+                }
+            } catch (err) {
+                console.error('Error:', err);
+                showMessage('🌐 Network error. Please check your connection and try again.', 'error');
+            }
+        });
+    </script>
+</body>
+</html>
